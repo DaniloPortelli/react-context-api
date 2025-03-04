@@ -1,14 +1,17 @@
 import NavBar from "../components/NavBar"
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { NavLink } from "react-router-dom";
+import { useGlobalContext } from "../contexts/GlobalContext";
 
 const Posts = () => {
 
-    const [posts, setPosts] = useState([]);
+    // const [posts, setPosts] = useState([]);
+
+    const {posts, fetchPosts} = useGlobalContext()
+
     useEffect(() => {
-        fetch("http://localhost:3000/api/posts")
-            .then((res) => res.json())
-            .then(setPosts)
+
+        fetchPosts()
 
     }, [])
 

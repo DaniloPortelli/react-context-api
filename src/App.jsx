@@ -10,13 +10,14 @@ import HomePage from "./pages/HomePage"
 import AboutUs from "./pages/AboutUs"
 import Posts from "./pages/Posts"
 import SinglePost from "./pages/SinglePost"
-
+import { GlobalProvider } from "./contexts/GlobalContext" 
 
 
 
 function App() {
 
   return (
+    <GlobalProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" Component={HomePage} />
@@ -25,6 +26,7 @@ function App() {
           <Route path="/posts/:id" Component={SinglePost} />
         </Routes>
       </BrowserRouter>
+    </GlobalProvider>
   )
 }
 
